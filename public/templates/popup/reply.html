@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h3 class="modal-title">Compose a message</h3>
+
+</div>
+<div class="modal-body" ng-controller="homeCtrl">
+    <div class="thumbnail borderThumbP">
+        <div class="caption">
+            <p class="txt">Reply</p>
+            <div class="form-group" ng-mousedown="to()">
+                <label for="usr" data-question="What is your name" id="to"> To : </label>
+                <input type="text" placeholder="To" class="form-control" ng-model="Sender_Name" id="usr" autofocus/>
+            </div>
+            <div class="form-group" ng-mousedown="subject()">
+                <label data-question="What is your password" id="subject"> Subject : </label>
+                <input type="text" placeholder="Subject" ng-model="sub" class="form-control" id="pwd" />
+            </div>
+            <div class="form-group" ng-mousedown="messag()">
+                <label>Message: </label>
+                <textarea ng-model="reply.message" class="form-control" rows="10"></textarea>
+            </div>
+            <button type="button" class="btn btn-info btn-block" ng-click="reply()">Send</button>
+            <button type="button" class="btn btn-danger btn-block" ng-click="close()">Close</button>
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+
+</div>

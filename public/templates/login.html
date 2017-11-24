@@ -1,0 +1,101 @@
+<header class="header">
+	<div class="container">
+	  <div class="row">
+		<div class="col-xs-12 col-sm-3 col-md-4"><a id="logo" href="" ui-sref="login"><img src="images/mail.png"  alt="" title="home" height="120px" width="300px" ></a> </div>
+		<div class="col-xs-12 col-sm-9 col-md-8">
+			<!--<div class="topPhone pull-right"><p>+1-9876543210</p></div>-->
+		  <div class="clearfix"></div>
+		  <nav class="navbar marginBottom">
+			<div class="container-fluid">
+			  <div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			  </div>
+			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <nav>
+				<ul class="nav navbar-nav mainNavigation">
+				  <li class="active"><a href="#" ui-sref="home">Login </a></li>
+				</ul>
+				</nav>
+			  </div>
+			</div>
+		  </nav>
+		</div>
+	  </div>
+	</div>
+	
+  </header>
+	<!--Header HTML Ends Here--> 
+	
+	<div class="words">
+			<p id="result"></p>
+	</div>
+  
+  <!-- Content HTML Starts Here-->
+  <section class="content">
+  <div class="container" ng-mouseover="activate()">
+	<div class="row">
+	  
+	</div>
+	  <div class="row2">
+		<div class="col-lg-12">
+		  <h2 class="heading">Login</h2>
+		</div>
+	  </div>
+	  <div class="row1">
+		
+		<div class="col-xs-12 col-sm-4 col-md-4">
+		  <div class="thumbnail borderThumbL"> 
+			<div class="caption" >
+			  <h4>Mail</h4>
+              <p class="txt">Hi, Welcome to your mail</p> 
+              <div class="form-group" ng-click="usernam()">
+                <label for="usr" data-question="What is your username" id="username"> Username : </label>
+                <input type="text" placeholder="Username" class="form-control" ng-model="datas.username" id="usr" autofocus/>
+              </div>
+              <div class="form-group" ng-click="password()">
+                <label data-question="What is your password" id="password"> Password : </label>
+                <input type="password" placeholder="Password" ng-model="datas.password" class="form-control" id="pwd"/>
+              </div>
+							<!-- <button type="button" class="btn btn-info btn-block" ng-click="login()">Login</button> -->
+							<a href="" ui-sref="register">Click here to register</a>
+							<br>
+							<a href="" ui-sref="forgot">Forgot your password?</a>
+							<br>
+							<a href="">..</a>
+			</div>
+		  </div>
+		</div>
+
+	</div>
+	
+   </div>
+
+  </section>
+  
+  <!--Content HTML Ends Here--> 
+  
+  <!-- Footer  HTML Starts Here-->
+  <br>
+  <div class="footer text-center">
+    <a>   Designed by: Mariah</a>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$(".caption input").keyup(function (event) {
+		console.log(event)
+		if (event.keyCode == 13) {
+			if($(':input:eq(' + ($(':input').index(this)+ 1) + ')').attr('type') == 'submit'){
+					return true;
+			}
+
+			$(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
+			return false;
+		}
+	});
+})
+
+
+</script>
+	

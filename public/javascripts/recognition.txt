@@ -1,0 +1,58 @@
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    //recognition.maxAlternatives = 1;
+
+    var r = document.getElementById('result');
+
+    $scope.moveUp = function(){
+
+        if('SpeechRecognition' in window){
+                var recognition = new webkitSpeechRecognition();
+            
+                recognition.continuous = true;
+                recognition.lang = 'en-GB';
+                recognition.interimResults = true;
+            
+                recognition.start();
+
+                console.log(recognition);
+
+                var finalTranscripts = '';
+
+                recognition.onresult = function(event) {
+                    console.log(event);
+                        var interimTranscripts = '';
+                        for(var i = event.resultIndex; i < event.results.length; i++){
+                            var transcript = event.results[i][0].transcript;
+                            transcript.replace("\n", "<br>");
+                            if(Event.results[i].isFinal){
+                                finalTranscripts += transcript;
+                            }
+                            else{
+                                interimTranscripts += transcript;
+                            }
+                        }
+                            
+                        r.innerHTML = finalTranscripts + '<span style="color:#999">' +
+                        interimResults + '</span>';
+                    }
+                    recognition.onerror = function(event){
+                        console.log(event);
+                    };
+
+                    recognition.onspeechend = function() {
+                        recognition.stop();
+                      }
+
+        }
+        else{
+            alert("Not supported");
+        }
+        
+
+        
+    }
+
+    ///*****************************
+
+    PCI\VEN_8086&DEV_22A3&SUBSYS_390417AA&REV_21\3&11583659&1&98
